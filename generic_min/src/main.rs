@@ -3,7 +3,6 @@ trait LessThan {
     fn less_than(&self, other: &Self) -> bool;
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 struct Citation {
     author: &'static str,
     year: u32,
@@ -23,6 +22,7 @@ impl LessThan for Citation {
 
 // TODO: implement the `min` function used in `main`.
 
+
 fn main() {
     let cit1 = Citation {
         author: "Shapiro",
@@ -36,7 +36,9 @@ fn main() {
         author: "Baumann",
         year: 2019,
     };
-    debug_assert_eq!(min(cit1, cit2), cit2);
-    debug_assert_eq!(min(cit2, cit3), cit2);
-    debug_assert_eq!(min(cit1, cit3), cit3);
+    println!("I am printing return of min {:?}", min(cit1,cit2));
+    debug_assert_eq!(min(&cit1, &cit2), cit2);
+    debug_assert_eq!(min(&cit2, &cit3), cit2);
+    println!("{:?}",debug_assert_eq!(min(&cit1, &cit3), cit3));
+    println!("I am done");
 }
